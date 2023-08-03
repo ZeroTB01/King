@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+	<title>你好 世界</title>
+    <meta charset="utf-8">
+    <style>
+	 @font-face {
+            font-family: '01'; /* 自定义字体名称 */
+            src: url('01.ttf') format('truetype'); /* 字体文件路径 */
+        }
+        body {
+            background-image: url('01.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+	    display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+            height: 100vh; /* 设置body高度占满整个视口，保证垂直居中生效 */
+		font-family: '01', Arial, sans-serif;
+        }
+	a:link{
+		font-size: 500%;
+            	
+            	text-align: center;
+	    	color: black; /* 设置链接字体颜色为黑色 */
+            	text-decoration: none; /* 去除链接下划线 */
+		}
+        a:visited {
+            font-size: 500%;
+           
+            text-align: center;
+	    color: black; /* 设置链接字体颜色为黑色 */
+            text-decoration: none; /* 去除链接下划线 */
+        }
+	a:hover{
+		color:#95a5b5;
+		}
+	 #musicBtn {
+            position: absolute; /* 绝对定位 */
+            top: 10px; /* 距离顶部10px */
+            right: 10px; /* 距离右侧10px */
+            width: 30px; /* 按钮宽度 */
+            height: 30px; /* 按钮高度 */
+            background-color: transparent; /* 背景透明 */
+            border: none; /* 去除边框 */
+            padding: 0; /* 去除内边距 */
+            cursor: pointer; /* 鼠标悬停显示手型指针 */
+        }
+
+        #musicIcon {
+            width: 100%; /* 图标宽度填满按钮 */
+            height: 100%; /* 图标高度填满按钮 */
+        }
+    </style>
+</head>
+<body>
+	<audio id="bgMusic" src="01.mp3"autoplay loop></audio>	
+	<button id="musicBtn" onclick="toggleMusic()">
+        <img id="musicIcon" src="声音关.png" alt="音乐开关">
+    </button>
+	
+    <a href="01主页面.html"><i>此即，智慧之殿堂</i></a>
+
+	<script>
+        var bgMusic = document.getElementById("bgMusic");
+        var musicBtn = document.getElementById("musicBtn");
+        var musicIcon = document.getElementById("musicIcon");
+
+        function toggleMusic() {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicIcon.src = "声音开.png";
+                musicBtn.setAttribute("aria-label", "关闭音乐");
+            } else {
+                bgMusic.pause();
+                musicIcon.src = "声音关.png";
+                musicBtn.setAttribute("aria-label", "开启音乐");
+            }
+        }
+    </script>
+</body>
+</html>
